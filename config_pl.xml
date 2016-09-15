@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>shiptopay</name>
+	<displayName><![CDATA[Ship to Pay]]></displayName>
+	<version><![CDATA[2.1]]></version>
+	<description><![CDATA[Przypisz opcje do stawy do sposob&oacute;w płatności.]]></description>
+	<author><![CDATA[addonsPresta.com]]></author>
+	<tab><![CDATA[administration]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>
