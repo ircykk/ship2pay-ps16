@@ -25,7 +25,7 @@ class ShipToPay extends Module
 
 	    parent::__construct();
 
-	    $this->displayName = $this->l('Ship to Pay');
+	    $this->displayName = $this->l('Ship2Pay');
 	    $this->description = $this->l('Assign delivery options for payment in the store.');
     }
 
