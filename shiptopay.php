@@ -121,6 +121,11 @@ class ShipToPay extends Module
     	
 		$carriers = Carrier::getCarriers($this->context->language->id, false, false, false, null, Carrier::ALL_CARRIERS);
 		$payment_modules = array();
+		
+   		//virtual carrier
+   		$carrier['name'] = $this->l('Virtual products');
+    		$carrier['id'] = 9999;
+   		$carriers[] = $carrier;
 
 		/* Get all modules then select only payment ones */
 		$modules = Module::getModulesOnDisk(true);
