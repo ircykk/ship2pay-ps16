@@ -6,7 +6,7 @@ abstract class PaymentModule extends PaymentModuleCore
         $message = null, $extra_vars = array(), $currency_special = null, $dont_touch_amount = false,
         $secure_key = false, Shop $shop = null)
     {
-        if (!$this->context->cart->isVirtualCart() && Module::getInstanceByName('shiptopay')->active) {
+        if (!$this->context->cart->isVirtualCart() && ($this->context->cart->getOrderTotal() > 0) &&  Module::getInstanceByName('shiptopay')->active) {
 
             // Check if payment option is valid for selected delivery method [ship2pay]
             $sql = new DbQuery();
