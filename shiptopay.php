@@ -124,7 +124,7 @@ class ShipToPay extends Module
 		
    		//virtual carrier
    		$carrier['name'] = $this->l('Virtual products');
-    		$carrier['id'] = 9999;
+    		$carrier['id_carrier'] = 9999;
    		$carriers[] = $carrier;
 
 		/* Get all modules then select only payment ones */
