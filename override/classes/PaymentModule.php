@@ -6,14 +6,16 @@ abstract class PaymentModule extends PaymentModuleCore
         $message = null, $extra_vars = array(), $currency_special = null, $dont_touch_amount = false,
         $secure_key = false, Shop $shop = null)
     {
-        if (!$this->context->cart->isVirtualCart() && ($this->context->cart->getOrderTotal() > 0) &&  Module::getInstanceByName('shiptopay')->active) {
+        $cart = new Cart((int)$id_cart);
+
+        if (!$cart->isVirtualCart() && ($cart->getOrderTotal() > 0) &&  Module::getInstanceByName('shiptopay')->active) {
 
             // Check if payment option is valid for selected delivery method [ship2pay]
             $sql = new DbQuery();
             $sql->select('*');
             $sql->from('shiptopay', 's2p');
             $sql->where('s2p.`id_shop` = '.(int)$this->context->shop->id);
-            $sql->where('s2p.`id_carrier` = '.(int)$this->context->cart->id_carrier);
+            $sql->where('s2p.`id_carrier` = '.(int)$cart->id_carrier);
             $sql->where('s2p.`id_payment` = '.(int)$this->id);
 
             if (!$result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql)) {
